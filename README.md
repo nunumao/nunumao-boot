@@ -52,4 +52,4 @@ yarn dev
 浏览器访问 `http://localhost:3000`。
 
 ## 文档教程
-详细文档与教程 [文档链接](https://thoughts.aliyun.com/workspaces/617750e8898849001a915f23/docs/617752b30f1dae0001edd334)
+详细文档与教程 [文档链接](https://thoughts.aliyun.com/sharespace/61775109996708001a43703e/docs/617755c004c388001a3edc69)

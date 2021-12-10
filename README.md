@@ -1,7 +1,21 @@
 # Nunumao-Boot
-Springboot + Vue 后端快速开发框架，前端
+Nunumao-Boot 是一个基于 SpringBoot的免费开源的，为了简化企业应用开发而设计的敏捷开发框架。设计的初衷是将软件应用开发中的常见功能、通用功能抽象为组件或依赖库，提高开发中的复用性，降低软件应用的开发复杂度，缩短软件应用的开发周期。
 
 ![图片](https://raw.githubusercontent.com/nunumao/nunumao-boot/main/assets/1.png)
+
+## 相关特性
+- 前后端分离
+- OAuth2鉴权
+- RBAC权限管理
+- 部门权限管理
+- 部门权限继承
+- 数据权限
+- 静态资源文件管理
+- 代码生成
+- 常用业务组件
+- 接口文档生成
+- 接口版本控制
+- WebSocket推送
 
 ## 演示体验
 演示站地址：https://nunumao.365d1.com/

@@ -34,7 +34,7 @@ Nunumao-Boot 是一个基于 SpringBoot的免费开源的，为了简化企业�
 ...
 spring:
   datasource:
-    url: jdbc:mysql://120.24.95.110:3306/nunumao?serverTimezone=GMT%2b8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/nunumao?serverTimezone=GMT%2b8&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 
 ...

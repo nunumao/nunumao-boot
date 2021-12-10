@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com._365d1.crm.dao.CrmContactDao">
+
+    <select id="queryPage" resultType="com._365d1.crm.model.vo.CrmContactListVo">
+        SELECT
+            c.id,
+            c.`name`,
+            u.full_name AS company,
+            ( SELECT data_value FROM crm_contact_link WHERE contact_id = c.id AND type = 0 LIMIT 1 ) AS phone,
+            ( SELECT data_value FROM crm_contact_link WHERE contact_id = c.id AND type = 5 LIMIT 1 ) AS email
+        FROM
+            crm_contact c
+            LEFT JOIN crm_customer u ON c.customer_id = u.id
+        <where>
+            <if test="customer != null and customer != ''">
+                c.customer_id = #{customer}
+            </if>
+            <if test="search != null and search !=''">
+                AND (c.`name` LIKE CONCAT( '%', #{search}, '%' )
+                OR c.serial LIKE CONCAT( '%', #{search}, '%' ))
+            </if>
+        </where>
+        ORDER BY
+            c.create_time DESC
+    </select>
+
+    <select id="queryDetail" resultType="com._365d1.crm.model.vo.CrmContactDetailVo">
+        SELECT
+            cc.id,
+            cc.user_id,
+            cc.customer_id,
+            cc.serial,
+            cc.`name`,
+            cc.initial,
+            cc.avatar,
+            cc.gender,
+            cc.company,
+            cc.position,
+            cc.department,
+            cc.role,
+            cc.relation,
+            cc.birthday,
+            cc.hobby,
+            cc.remark,
+            cc.`status`,
+            su.`name` AS `user`,
+            cu.full_name AS customer
+        FROM
+            crm_contact cc
+            JOIN system_user su ON cc.user_id = su.id
+            LEFT JOIN crm_customer cu ON cc.customer_id = cu.id
+        WHERE
+	        cc.id = #{id}
+    </select>
+
+</mapper>

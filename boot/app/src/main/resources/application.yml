@@ -1,0 +1,29 @@
+server:
+  port: 9527
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/nunumao?serverTimezone=GMT%2b8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  profiles:
+    include:
+      - core
+entity:
+  packages: com._365d1.*.model
+# OAuth2.0 配置
+oauth2:
+  client: rzdKW1pmJk8ZaEex
+  secret: uDh6ng582qPBxSpYFQOvIiGZdkzcW4eM
+  salt: kK06reh7zBnQ5tiJSMVpCwFmZEyPLGDv
+swagger:
+  enable: true
+  auth: http://localhost:${server.port}
+setting:
+  debug: true
+  administrator: 1
+minio:
+  enable: false
+  endpoint: 请输入Minio服务器地址
+  access: 请输入Access
+  secret: 请输入Secret
+  bucket: 请输入Bucket

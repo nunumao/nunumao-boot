@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com._365d1.crm.dao.CrmChanceDao">
+
+    <select id="queryPage" resultType="com._365d1.crm.model.vo.CrmChanceListVo">
+        SELECT
+            cc.id,
+            cc.serial,
+            cc.`name`,
+            cc.expect_income,
+            cc.progress,
+            cc.`status`,
+            su.`name` AS `user`,
+            cu.full_name AS customer,
+            ct.`name` AS contact
+        FROM
+            crm_chance cc
+            JOIN system_user su ON cc.user_id = su.id
+            LEFT JOIN crm_customer cu ON cc.customer_id = cu.id
+            LEFT JOIN crm_contact ct ON cc.contact_id = ct.id
+        WHERE
+            (
+                cc.serial LIKE CONCAT( '%', #{search}, '%' )
+            OR cc.`name` LIKE CONCAT( '%', #{search}, '%' ))
+        ORDER BY
+            cc.create_time DESC
+    </select>
+
+    <select id="queryDetail" resultType="com._365d1.crm.model.vo.CrmChanceDetailVo">
+        SELECT
+            cc.id,
+            cc.user_id,
+            cc.serial,
+            cc.`name`,
+            cc.customer_id,
+            cc.contact_id,
+            cc.expect_income,
+            cc.expect_date,
+            cc.probability,
+            cc.progress,
+            cc.remark,
+            cc.`status`,
+            su.`name` AS `user`,
+            cu.full_name AS customer,
+            ct.`name` AS contact
+        FROM
+            crm_chance cc
+            JOIN system_user su ON cc.user_id = su.id
+            LEFT JOIN crm_customer cu ON cc.customer_id = cu.id
+            LEFT JOIN crm_contact ct ON cc.contact_id = ct.id
+        WHERE
+            cc.id = #{id}
+    </select>
+
+</mapper>

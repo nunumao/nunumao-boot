@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "iconfont"; /* Project id 2770956 */
+    src: url("../font/iconfont.woff2?t=1631297417057") format("woff2"),
+        url("../font/iconfont.woff?t=1631297417057") format("woff"),
+        url("../font/iconfont.ttf?t=1631297417057") format("truetype");
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gangweitubiao:before {
+    content: "\e603";
+}
+
+.icon-bumen:before {
+    content: "\e686";
+}
+
+.icon-zuzhijigou:before {
+    content: "\e63c";
+}
+
+.icon-input-suffix {
+    width: 25px;
+    line-height: 36px;
+    display: block;
+}
+
+.el-dialog__header {
+    padding: 10px 20px !important;
+    border-bottom: solid 1px var(--el-border-color-base);
+    line-height: 20px !important;
+    .el-dialog__title {
+        font-size: 16px !important;
+    }
+    .el-dialog__headerbtn {
+        top: 10px !important;
+    }
+}
+.el-dialog__body {
+    padding: 10px 20px !important;
+}

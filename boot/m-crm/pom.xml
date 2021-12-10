@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>boot</artifactId>
+        <groupId>com._365d1</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com._365d1.crm</groupId>
+    <artifactId>m-crm</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>crm-model</module>
+        <module>crm-dao</module>
+        <module>crm-service</module>
+        <module>crm-app</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.nunumao</groupId>
+            <artifactId>standalone-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com._365d1.crm.dao.CrmContractDao">
+
+    <select id="queryPage" resultType="com._365d1.crm.model.vo.CrmContractVo">
+        SELECT
+            c.id,
+            c.serial,
+            c.`name`,
+            c.total_price,
+            c.collect_price,
+            c.`status`,
+            u.`name` AS `user`,
+            m.full_name AS customer
+        FROM
+            crm_contract c
+            JOIN system_user u ON c.user_id = u.id
+            JOIN crm_customer m ON c.customer_id = m.id
+        <where>
+            <if test="search != null and search !=''">
+                ( c.serial LIKE CONCAT( '%', #{search}, '%' ) OR c.`name` LIKE CONCAT( '%', #{search}, '%' ) )
+            </if>
+        </where>
+        ORDER BY
+            c.create_time DESC
+    </select>
+
+    <select id="queryDetail" resultType="com._365d1.crm.model.vo.CrmContractDetailVo">
+        SELECT
+            c.id,
+            u.`name` AS `user`,
+            c.serial,
+            c.`name`,
+            t.full_name AS customer,
+            n.`name` AS chance,
+            c.type,
+            c.total_price,
+            c.collect_price,
+            c.surplus_price,
+            c.rebate_price,
+            c.sign_date,
+            c.expire_date,
+            c.`status`
+        FROM
+            crm_contract c
+            JOIN system_user u ON c.user_id = u.id
+            LEFT JOIN crm_customer t ON c.customer_id = t.id
+            LEFT JOIN crm_chance n ON c.chance_id = n.id
+        WHERE
+            c.id = #{id}
+    </select>
+
+</mapper>

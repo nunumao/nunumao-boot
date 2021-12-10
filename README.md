@@ -9,3 +9,33 @@ Springboot + Vue 后端快速开发框架，前端
 体验账号: nunu
 
 体验密码: 123456
+
+## 快速开始
+
+新建数据库 `nunumao`，编码选择`utf-8`，并导入数据库初始化数据。
+> database/nunumao.sql
+
+修改`app`模块中的`application.yml`数据库连接配置。
+```yaml
+...
+spring:
+  datasource:
+    url: jdbc:mysql://120.24.95.110:3306/nunumao?serverTimezone=GMT%2b8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 
+...
+```
+在IDEA中或命令中运行项目即可。
+
+进入`manager`目录，安装前端项目依赖(请提前安装yarn)。
+```shell
+yarn
+```
+运行前端项目。
+```shell
+yarn dev
+```
+浏览器访问 `http://localhost:3000`。
+
+## 文档教程
+详细文档与教程 [文档链接](https://thoughts.aliyun.com/workspaces/617750e8898849001a915f23/docs/617752b30f1dae0001edd334)
